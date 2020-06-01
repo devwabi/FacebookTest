@@ -7,10 +7,46 @@
 
 # This is a simple example for a custom action which utters "Hello World!"
 
-# from typing import Any, Text, Dict, List
+from typing import any, text, dict, list
 #
-# from rasa_sdk import Action, Tracker
-# from rasa_sdk.executor import CollectingDispatcher
+from rasa_sdk import action, tracker
+from rasa_sdk.executor import collectingdispatcher
+
+class ActionYesNo(Action):
+    def name(self):
+        return "action_yes_no"
+
+    def run(self, dispatcher, tracker, domain):
+        if tracker.get_latest_input_channel() == 'facebook':
+            message = {
+                "text": "Is this correct (Yes/No)?",
+                "quick_replies": [
+                    {
+                        "content_type": "text",
+                        "title": "Yes",
+                        "payload": "/affirm",
+                    }, {
+                        "content_type": "text",
+                        "title": "No",
+                        "payload": "/deny",
+                    },{
+                        "content_type": "text",
+                        "title": "YesNo",
+                        "payload": "/deny",
+                    }
+                    
+                    
+                ]
+            }
+            dispatcher.utter_custom_json(message)
+        
+        return []
+		
+
+
+
+
+
 #
 #
 # class ActionHelloWorld(Action):

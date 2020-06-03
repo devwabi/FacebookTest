@@ -33,6 +33,7 @@ responses:
 
 actions:
 - action_yes_no
+- action_audio_test
 
 session_config:
   session_expiration_time: 60

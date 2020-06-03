@@ -44,9 +44,10 @@ class ActionYesNo(Action):
                 ]
             }
             dispatcher.utter_custom_json(message)
-        
+
+        else:
+            dispatcher.utter_message(template="utter_greet")
         return []
-		
 
 
 

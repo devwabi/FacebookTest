@@ -59,18 +59,17 @@ class ActionAudioTest(Action):
     def run(self, dispatcher: CollectingDispatcher,
             tracker: Tracker,
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
-        message= {
-            "content": {
-                "type": "audio",
-                "audio": {
-                    "url": "https://file-examples.com/wp-content/uploads/2017/11/file_example_MP3_700KB.mp3"
+        if tracker.get_latest_input_channel() == 'facebook':
+            message= {
+                "content": {
+                    "type": "audio",
+                    "audio": {
+                        "url": "https://file-examples.com/wp-content/uploads/2017/11/file_example_MP3_700KB.mp3"
+                            }
                         }
                     }
-                }
 
-        dispatcher.utter_message(json_message=message)
-        else:
-            dispatcher.utter_message(template="utter_greet")
+            dispatcher.utter_message(json_message=message)
 
         return []
 

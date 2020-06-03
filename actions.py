@@ -63,7 +63,7 @@ class ActionAudioTest(Action):
             "content": {
                 "type": "audio",
                 "audio": {
-                    "url": "https://file-examples.com/wp-content/uploads/2017/11/file_example_MP3_700KB.mp3"
+                    "url": "'https://file-examples.com/wp-content/uploads/2017/11/file_example_MP3_700KB.mp3'"
                         }
                     }
                 }

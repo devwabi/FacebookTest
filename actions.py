@@ -51,6 +51,28 @@ class ActionYesNo(Action):
 
 
 
+class ActionAudioTest(Action):
+
+    def name(self) -> Text:
+        return "action_audio_test"
+
+    def run(self, dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+        message= {
+            "content": {
+                "type": "audio",
+                "audio": {
+                    "url": "https://file-examples.com/wp-content/uploads/2017/11/file_example_MP3_700KB.mp3"
+                        }
+                    }
+                }
+
+        dispatcher.utter_message(json_message=message)
+        else:
+            dispatcher.utter_message(template="utter_greet")
+
+        return []
 
 
 #

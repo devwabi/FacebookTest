@@ -44,7 +44,7 @@ class ActionYesNo(Action):
                 ]
             }
            # dispatcher.utter_custom_json(message)
-            dispatcher.utter_message(json_message=message)
+    	    dispatcher.utter_message(json_message=message)
         else:
             dispatcher.utter_message(template="utter_greet")
         return []
@@ -64,11 +64,10 @@ class ActionAudioTest(Action):
                 "content": {
                     "type": "audio",
                     "audio": {
-                        "url": "https://file-examples.com/wp-content/uploads/2017/11/file_example_MP3_700KB.mp3"
+                        "url": "'https://file-examples.com/wp-content/uploads/2017/11/file_example_MP3_700KB.mp3'"
                             }
                         }
                     }
-
             dispatcher.utter_message(json_message=message)
 
         return []
